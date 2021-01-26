@@ -14,7 +14,8 @@ const getState = ({ getStore, getActions, setStore }) => {
 					initial: "white"
 				}
 			],
-			planets: []
+			planets: [],
+			people: []
 		},
 		actions: {
 			// Use getActions to call a function within a fuction
@@ -38,6 +39,27 @@ const getState = ({ getStore, getActions, setStore }) => {
 				//reset the global store
 				setStore({ demo: demo });
 			},
+			getPeople: url => {
+				fetch(url)
+					.then(resp => resp.json())
+					.then(data => {
+						setStore({ people: data.results });
+					})
+					.catch(error => console.log("Error loading message from backend", error));
+			},
+
+			getPerson: url => {
+				fetch(url)
+					.then(resp => resp.json())
+					.then(data => {
+						//Here we should recover only 1 planet
+						debugger;
+						// What do we should update?
+						setStore({ person: data.result.properties });
+					})
+					.catch(error => console.log("Error loading message from backend", error));
+			},
+
 			getPlanets: url => {
 				fetch(url)
 					.then(resp => resp.json())
@@ -53,6 +75,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 						//Here we should recover only 1 planet
 						debugger;
 						// What do we should update?
+						setStore({ planet: data.result.properties });
 					})
 					.catch(error => console.log("Error loading message from backend", error));
 			}

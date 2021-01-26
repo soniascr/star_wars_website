@@ -1,11 +1,20 @@
 import React, { useContext } from "react";
 import { Context } from "../store/appContext";
 import { PlanetCard } from "../component/planetCard";
+import { PersonCard } from "../component/personCard";
 import rigoImage from "../../img/rigo-baby.jpg";
 import "../../styles/home.scss";
 
 export const Home = () => {
 	const { store, actions } = useContext(Context);
+
+	const listPeople = store.people.map((value, index) => {
+		return (
+			<div key={index} className="col-md-4">
+				<PersonCard data={value} />
+			</div>
+		);
+	});
 
 	const listPlanets = store.planets.map((value, index) => {
 		return (
@@ -15,26 +24,14 @@ export const Home = () => {
 		);
 	});
 
-	//const listPeople;
-	//const listVehicules;
-
 	return (
-		<div className="text-center mt-5">
-			<h1>Hello Rigo!</h1>
-
-			{/* Here is a list of planets */}
-			<h1>Planets</h1>
-			<div className="row">{listPlanets}</div>
-
+		<div className="container m-3">
+			<h2 className="text-danger">Characters</h2>
 			{/* Here is a list of people */}
-
-			{/* Here is a list of vehicules */}
-			<p>
-				This boilerplate comes with lots of documentation:{" "}
-				<a href="https://github.com/4GeeksAcademy/react-flask-hello/tree/95e0540bd1422249c3004f149825285118594325/docs">
-					Read documentation
-				</a>
-			</p>
+			<div className="row">{listPeople}</div>
+			<h2 className="text-danger">Planets</h2>
+			{/*list of planets*/}
+			<div className="row">{listPlanets}</div>
 		</div>
 	);
 };

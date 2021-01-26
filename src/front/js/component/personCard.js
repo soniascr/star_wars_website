@@ -1,10 +1,10 @@
 import React, { useContext, useState, useEffect } from "react";
 import { Context } from "../store/appContext";
 import PropTypes from "prop-types";
-import planet from "../../img/planet.jpg";
+import starwars from "../../img/starwars.jpg";
 import { Link } from "react-router-dom";
 
-export const PlanetCard = props => {
+export const PersonCard = props => {
 	const [details, setDetails] = useState();
 
 	useEffect(() => {
@@ -16,17 +16,22 @@ export const PlanetCard = props => {
 
 	return (
 		<div className="card mb-3">
-			<img className="card-img-top" src={planet} alt="Card image cap" />
+			<img className="card-img-top" src={starwars} />
 			<div className="card-body">
 				<h5 className="card-title">{details ? details.name : ""}</h5>
 				<p className="card-text">
-					<div>Population: {details ? details.population : ""}</div>
-					<div>Terrain: {details ? details.terrain : ""}</div>
+					<div>Gender: {details ? details.gender : ""}</div>
+					<div>
+						Hair-color:
+						{details ? details.hair_color : ""}
+					</div>
+					<div>Eye-color: {details ? details.eye_color : ""}</div>
 				</p>
 				<div className="d-flex justify-content-between">
-					<Link to="/single">
+					<Link to="/person_details">
 						<button className="btn btn-outline-primary">Learn more</button>
 					</Link>
+
 					<button className="btn btn-outline-warning">
 						<span>
 							<i className="far fa-heart" />
@@ -38,6 +43,6 @@ export const PlanetCard = props => {
 	);
 };
 
-PlanetCard.propTypes = {
+PersonCard.propTypes = {
 	data: PropTypes.object
 };
