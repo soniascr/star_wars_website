@@ -24,7 +24,7 @@ export const PlanetCard = props => {
 					<div>Terrain: {details ? details.terrain : ""}</div>
 				</p>
 				<div className="d-flex justify-content-between">
-					<Link to="/single">
+					<Link to={`/planet/${props.data.uid}`}>
 						<button className="btn btn-outline-primary">Learn more</button>
 					</Link>
 					<button className="btn btn-outline-warning">

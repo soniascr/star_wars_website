@@ -1,14 +1,14 @@
-import React, { useState, useEffect, useContext } from "react";
-import { Link, useParams } from "react-router-dom";
+import React, { useContext, useState, useEffect } from "react";
 import { Context } from "../store/appContext";
-import starwars from "../../img/starwars.jpg";
+import planet from "../../img/planet.jpg";
+import { Link, useParams } from "react-router-dom";
 
-export const PersonDetail = props => {
+export const PlanetDetail = props => {
 	const [details, setDetails] = useState();
 	const params = useParams();
 
 	useEffect(() => {
-		fetch(`https://www.swapi.tech/api/people/${params.id}`)
+		fetch(`https://www.swapi.tech/api/planets/${params.id}`)
 			.then(resp => resp.json())
 			.then(data => setDetails(data.result.properties));
 	}, []);
@@ -18,7 +18,7 @@ export const PersonDetail = props => {
 			<div className="row">
 				<div className="col-md-6">
 					<div className="img-fluid text-center mb-3">
-						<img src={starwars} />
+						<img src={planet} />
 					</div>
 				</div>
 				<div className="col-md-6">
@@ -47,33 +47,33 @@ export const PersonDetail = props => {
 				</div>
 				<div className="col-md-2">
 					<p>
-						<strong>Birth year</strong>
+						<strong>Climate</strong>
 					</p>
-					<p>{details ? details.birth_year : ""}</p>
+					<p>{details ? details.climate : ""}</p>
 				</div>
 				<div className="col-md-2">
 					<p>
-						<strong>Gender</strong>
+						<strong>Population</strong>
 					</p>
-					<p> {details ? details.gender : ""}</p>
+					<p> {details ? details.population : ""}</p>
 				</div>
 				<div className="col-md-2">
 					<p>
-						<strong>Height</strong>
+						<strong>Orbital Period</strong>
 					</p>
-					<p>{details ? details.height : ""}</p>
+					<p>{details ? details.orbital_period : ""}</p>
 				</div>
 				<div className="col-md-2">
 					<p>
-						<strong>Skin colour</strong>
+						<strong>Rotation period</strong>
 					</p>
-					<p> {details ? details.skin_color : ""}</p>
+					<p> {details ? details.rotation_period : ""}</p>
 				</div>
 				<div className="col-md-2">
 					<p>
-						<strong>Eye colour</strong>
+						<strong>Diameter</strong>
 					</p>
-					<p>{details ? details.eye_color : ""}</p>
+					<p>{details ? details.diameter : ""}</p>
 				</div>
 			</div>
 		</div>

@@ -8,7 +8,6 @@ export const PersonCard = props => {
 	const [details, setDetails] = useState();
 
 	useEffect(() => {
-		debugger;
 		fetch(props.data.url)
 			.then(resp => resp.json())
 			.then(data => setDetails(data.result.properties));
@@ -28,7 +27,7 @@ export const PersonCard = props => {
 					<div>Eye-color: {details ? details.eye_color : ""}</div>
 				</p>
 				<div className="d-flex justify-content-between">
-					<Link to="/person_details">
+					<Link to={`/person/${props.data.uid}`}>
 						<button className="btn btn-outline-primary">Learn more</button>
 					</Link>
 
