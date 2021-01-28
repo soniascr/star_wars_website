@@ -56,6 +56,12 @@ const getState = ({ getStore, getActions, setStore }) => {
 						setStore({ planets: data.results });
 					})
 					.catch(error => console.log("Error loading message from backend", error));
+			},
+
+			addFavorites: element => {
+				const store = getStore();
+				debugger;
+				setStore({ favorites: [...store.favorites, element] });
 			}
 		}
 	};
