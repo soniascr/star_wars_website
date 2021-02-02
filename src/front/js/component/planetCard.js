@@ -21,15 +21,15 @@ export const PlanetCard = props => {
 			<img className="card-img-top" src={planet} alt="Card image cap" />
 			<div className="card-body">
 				<h5 className="card-title">{details ? details.properties.name : ""}</h5>
-				<p className="card-text">
+				<div className="card-text">
 					<div>Population: {details ? details.properties.population : ""}</div>
 					<div>Terrain: {details ? details.properties.terrain : ""}</div>
-				</p>
+				</div>
 				<div className="d-flex justify-content-between">
 					<Link to={`/planet/${props.data.uid}`}>
-						<button className="btn btn-outline-primary">Learn more</button>
+						<button className="btn btn-outline-primary mt-2">Learn more</button>
 					</Link>
-					<button className="btn btn-outline-warning" onClick={event => actions.addFavorites(details)}>
+					<button className="btn btn-outline-warning mt-2" onClick={event => actions.addFavorites(details)}>
 						<span>
 							<i className={isFavorite ? "fas fa-heart" : "far fa-heart"} />
 						</span>

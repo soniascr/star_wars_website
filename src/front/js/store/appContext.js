@@ -30,7 +30,6 @@ const injectContext = PassedComponent => {
 			 **/
 			console.log(process.env.START_WARS_API);
 
-			state.actions.getMessage(); // <---- calling this function from the flux.js actions
 			state.actions.getPlanets(process.env.START_WARS_API + "/planets");
 			state.actions.getPeople(process.env.START_WARS_API + "/people");
 		}, []);

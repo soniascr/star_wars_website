@@ -20,20 +20,20 @@ export const PersonCard = props => {
 			<img className="card-img-top" src={starwars} />
 			<div className="card-body">
 				<h5 className="card-title">{details ? details.properties.name : ""}</h5>
-				<p className="card-text">
+				<div className="card-text">
 					<div>Gender: {details ? details.properties.gender : ""}</div>
 					<div>
 						Hair-color:
 						{details ? details.properties.hair_color : ""}
 					</div>
 					<div>Eye-color: {details ? details.properties.eye_color : ""}</div>
-				</p>
+				</div>
 				<div className="d-flex justify-content-between">
 					<Link to={`/person/${props.data.uid}`}>
-						<button className="btn btn-outline-primary">Learn more</button>
+						<button className="btn btn-outline-primary mt-2">Learn more</button>
 					</Link>
 
-					<button className="btn btn-outline-warning" onClick={event => actions.addFavorites(details)}>
+					<button className="btn btn-outline-warning mt-2" onClick={event => actions.addFavorites(details)}>
 						<span>
 							<i className={isFavorite ? "fas fa-heart" : "far fa-heart"} />
 						</span>
