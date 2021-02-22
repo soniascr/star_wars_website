@@ -28,10 +28,10 @@ const injectContext = PassedComponent => {
 			 * you should do your ajax requests or fetch api requests here. Do not use setState() to save data in the
 			 * store, instead use actions, like this:
 			 **/
-			console.log(process.env.START_WARS_API);
+			console.log(process.env.STAR_WARS_API);
 
-			state.actions.getPlanets(process.env.START_WARS_API + "/planets");
-			state.actions.getPeople(process.env.START_WARS_API + "/people");
+			state.actions.getPlanets(process.env.STAR_WARS_API + "/planets");
+			state.actions.getPeople(process.env.STAR_WARS_API + "/people");
 		}, []);
 
 		// The initial value for the context is not null anymore, but the current state of this component,
